@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Be My Chef</title>
+  <meta name="description" content="Pakistani, Indian, Chinese, Arabian and fast-food recipes with automatic quantity scaling — in Urdu, English and Arabic." />
+  <meta name="theme-color" content="#7a2f1d" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- language chooser -->
+  <div id="lang-screen" class="lang-screen is-hidden">
+    <div class="lang-box">
+      <div class="lang-logo">🍳</div>
+      <h1>Be My Chef</h1>
+      <p class="lang-sub">Choose your language · اپنی زبان منتخب کریں · اختر لغتك</p>
+      <button class="lang-opt" data-lang="ur"><b>اردو</b><span>پاکستانی، فاسٹ فوڈ، عربی اور چائنیز کھانے</span></button>
+      <button class="lang-opt" data-lang="en"><b>English</b><span>Desi, fast food, Arabian and Chinese recipes</span></button>
+      <button class="lang-opt" data-lang="ar"><b>العربية</b><span>أطباق باكستانية وسريعة وعربية وصينية</span></button>
+    </div>
+  </div>
+
+  <header class="top">
+    <div class="wrap top-row">
+      <h1 class="brand" id="app-title">Be My Chef</h1>
+      <button class="btn ghost" id="lang-btn">🌐</button>
+    </div>
+    <div class="wrap">
+      <input id="search" class="search" type="search" autocomplete="off" placeholder="Search…" />
+    </div>
+    <div class="wrap tabs">
+      <button class="tab is-on" data-screen="chat" id="tab-chat">💬 <span></span></button>
+      <button class="tab" data-screen="home" id="tab-browse">📖 <span></span></button>
+    </div>
+    <div class="wrap cats" id="cats"></div>
+  </header>
+
+  <main class="wrap">
+    <div id="loader" class="loader"><p>…</p></div>
+    <section id="screen-list">
+      <p class="count" id="count"></p>
+      <div class="grid" id="grid"></div>
+    </section>
+    <section id="screen-chat">
+      <div id="chat-log" class="chat-log"></div>
+      <div class="chat-tips" id="chat-tips"></div>
+    </section>
+    <section id="screen-recipe" class="is-hidden"></section>
+  </main>
+
+  <div class="composer" id="composer">
+    <div class="wrap composer-row">
+      <input id="ask" class="ask" type="text" autocomplete="off" />
+      <button id="send" class="send" aria-label="send">➤</button>
+    </div>
+  </div>
+
+  <footer class="foot wrap">
+    <p>Be My Chef · <span id="year"></span></p>
+  </footer>
+  <script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+  <script src="app.js"></script>
+</body>
+</html>
