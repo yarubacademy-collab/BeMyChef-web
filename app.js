@@ -64,7 +64,11 @@ const App = (function () {
     err: { en: "Could not load the recipes. Please run the app through a local server.", ur: "ریسپیز لوڈ نہیں ہو سکیں۔ ایپ کو لوکل سرور کے ذریعے چلائیں۔", ar: "تعذّر تحميل الوصفات؛ شغّل التطبيق عبر خادم محلي." },
   };
   const t = (k) => (T[k] && (T[k][LANG] || T[k].en)) || k;
-  const pick = (o) => (o && (o[LANG] || o.en)) || "";
+  // Falls back through every language a piece of text actually has, instead
+  // of only the current language then English: a recipe added in Urdu only
+  // (not yet translated) still shows that Urdu text to an Arabic or English
+  // reader, rather than a blank card.
+  const pick = (o) => (o && (o[LANG] || o.ur || o.en || o.ar)) || "";
   const isRTL = () => LANG === "ur" || LANG === "ar";
 
   /* ---------- numbers ---------- */
